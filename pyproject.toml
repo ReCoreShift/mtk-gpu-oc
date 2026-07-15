@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtk-gpu-oc"
+version = "0.1.0"
+description = "MediaTek GPUfreq kernel module analysis and patching tool"
+readme = "README.md"
+license = "MPL-2.0"
+authors = [
+    { name = "mtk-gpu-oc contributors" },
+]
+keywords = ["mediatek", "gpufreq", "gpu", "overclocking", "kernel-module", "elf"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Hardware",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/anomalyco/mtk-gpu-oc"
+
+[project.scripts]
+mtk-gpu-oc = "mtk_gpu_oc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]

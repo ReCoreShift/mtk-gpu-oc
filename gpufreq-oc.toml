@@ -1,0 +1,85 @@
+# mtk-gpu-oc — example config: 1200 MHz OC on MT6789 stock module
+#
+# Three modes — pick ONE:
+#
+#   Mode "top" — set ceiling, voltage auto-calculated from stock curve
+#   Mode "top+bottom" — set both bounds, voltages interpolated
+#   Mode "full" — override every OPP entry explicitly
+#
+# Uncomment only the [oc] block for your chosen mode.
+
+[module]
+path = "research/stock/mtk_gpufreq_mt6789.ko"
+
+# === Mode "top": just the ceiling, everything else auto-calculated ===
+[oc]
+max_freq_mhz = 1200
+# max_volt_mv = 943.75    # optional; auto-calculated from top-two slope if omitted
+# min_freq_mhz = 390      # optional; stock floor if omitted
+# min_volt_mv  = 675      # optional; calculated from curve if omitted
+
+# === Mode "top+bottom": explicit bounds (uncomment to use) ===
+# [oc]
+# max_freq_mhz = 1200
+# min_freq_mhz = 390
+# max_volt_mv  = 943.75
+# min_volt_mv  = 675
+
+# === Mode "full": explicit per-OPP override (uncomment to use) ===
+# [oc]
+# opp = [
+#   { freq_mhz = 1200, volt_mv = 943.75 },
+#   { freq_mhz = 1184, volt_mv = 937.50 },
+#   { freq_mhz = 1168, volt_mv = 931.25 },
+#   { freq_mhz = 1152, volt_mv = 925.00 },
+#   { freq_mhz = 1137, volt_mv = 925.00 },
+#   { freq_mhz = 1121, volt_mv = 918.75 },
+#   { freq_mhz = 1105, volt_mv = 912.50 },
+#   { freq_mhz = 1089, volt_mv = 906.25 },
+#   { freq_mhz = 1075, volt_mv = 900.00 },
+#   { freq_mhz = 1059, volt_mv = 900.00 },
+#   { freq_mhz = 1043, volt_mv = 893.75 },
+#   { freq_mhz = 1027, volt_mv = 887.50 },
+#   { freq_mhz = 1012, volt_mv = 881.25 },
+#   { freq_mhz =  996, volt_mv = 875.00 },
+#   { freq_mhz =  980, volt_mv = 868.75 },
+#   { freq_mhz =  964, volt_mv = 862.50 },
+#   { freq_mhz =  949, volt_mv = 862.50 },
+#   { freq_mhz =  935, volt_mv = 856.25 },
+#   { freq_mhz =  923, volt_mv = 850.00 },
+#   { freq_mhz =  910, volt_mv = 850.00 },
+#   { freq_mhz =  898, volt_mv = 843.75 },
+#   { freq_mhz =  884, volt_mv = 837.50 },
+#   { freq_mhz =  871, volt_mv = 837.50 },
+#   { freq_mhz =  859, volt_mv = 831.25 },
+#   { freq_mhz =  846, volt_mv = 825.00 },
+#   { freq_mhz =  833, volt_mv = 825.00 },
+#   { freq_mhz =  820, volt_mv = 818.75 },
+#   { freq_mhz =  808, volt_mv = 812.50 },
+#   { freq_mhz =  795, volt_mv = 812.50 },
+#   { freq_mhz =  781, volt_mv = 806.25 },
+#   { freq_mhz =  769, volt_mv = 800.00 },
+#   { freq_mhz =  756, volt_mv = 793.75 },
+#   { freq_mhz =  744, volt_mv = 793.75 },
+#   { freq_mhz =  714, volt_mv = 781.25 },
+#   { freq_mhz =  684, volt_mv = 775.00 },
+#   { freq_mhz =  655, volt_mv = 762.50 },
+#   { freq_mhz =  625, volt_mv = 750.00 },
+#   { freq_mhz =  595, volt_mv = 743.75 },
+#   { freq_mhz =  567, volt_mv = 731.25 },
+#   { freq_mhz =  537, volt_mv = 725.00 },
+#   { freq_mhz =  508, volt_mv = 712.50 },
+#   { freq_mhz =  478, volt_mv = 706.25 },
+#   { freq_mhz =  448, volt_mv = 693.75 },
+#   { freq_mhz =  419, volt_mv = 687.50 },
+#   { freq_mhz =  390, volt_mv = 675.00 },
+# ]
+
+[bypass]
+enabled = true
+# avs_freq_check     = true
+# apply_adjust_probe = true
+# apply_adjust_avs   = true
+# segment_adj        = true
+
+# output = "mtk_gpufreq_mt6789_OC.ko"

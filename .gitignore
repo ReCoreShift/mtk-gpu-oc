@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.venv*/
+venv/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage/
+
+# Local research artifacts (stock modules, legacy scripts, generated patches)
+research/
+
+# Kernel module binaries
+*.ko
+*.patched
+*.bak
+
+# Editor
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
